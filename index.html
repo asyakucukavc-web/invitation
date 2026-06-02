@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Date Invitation ❤️</title>
   
-  <!-- Premium Google Fonts: Playfair Display, Cormorant Garamond (Fine Art Serif), Inter (Clean Body), Great Vibes (Cursive Calligraphy) -->
+  <!-- Premium Google Fonts: Playfair Display, Cormorant Garamond, Inter, Great Vibes -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg-cream: #fbf9f6;          /* Elegant warm linen cream background */
-      --color-gold: #c5a880;        /* Luxury champagne gold */
-      --color-gold-dark: #a3845b;   /* Deep gold accent */
-      --color-gold-light: #f4efe6;  /* Soft champagne touch */
-      --color-rose: #e8c5c8;        /* Soft dusty rose */
-      --color-rose-dark: #b88b8e;   /* Deep elegant rose */
-      --text-main: #3a3233;         /* Soft warm charcoal */
-      --text-muted: #7c6e6f;        /* Dusty grey-brown for readable details */
-      --card-bg: rgba(255, 255, 255, 0.75);
-      --card-border: rgba(197, 168, 128, 0.35);
+      --bg-cream: #faf8f6;          /* Elegant warm linen base */
+      --color-blue: #a2bfe6;        /* Soft pastel baby blue */
+      --color-blue-dark: #506f96;   /* Elegant dusty slate blue */
+      --color-pink: #f4c2c9;        /* Soft sweet pastel pink */
+      --color-pink-dark: #cf7c8b;   /* Elegant dusty rose */
+      --color-red-romantic: #d93d4a; /* Premium warm red accent */
+      --color-red-dark: #9e1d29;    /* Deep ruby for contrast */
+      --text-main: #383134;         /* Soft warm dark charcoal */
+      --text-muted: #73656b;        /* Subtle mauve-grey */
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(162, 191, 230, 0.35); /* Pastel blue borders */
     }
 
     * {
@@ -33,8 +34,9 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-cream);
       background-image: 
-        radial-gradient(circle at 10% 20%, rgba(244, 239, 230, 0.5) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(232, 197, 200, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 10% 20%, rgba(244, 194, 201, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(162, 191, 230, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(217, 61, 74, 0.03) 0%, transparent 60%);
       color: var(--text-main);
       overflow-x: hidden;
       min-height: 100vh;
@@ -66,10 +68,10 @@
         opacity: 0;
       }
       10% {
-        opacity: 0.6;
+        opacity: 0.65;
       }
       90% {
-        opacity: 0.6;
+        opacity: 0.65;
       }
       100% {
         transform: translateY(-110vh) rotate(360deg) scale(1.1);
@@ -83,7 +85,7 @@
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(197, 168, 128, 0.12) 0%, rgba(232, 197, 200, 0.08) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(244, 194, 201, 0.12) 0%, rgba(162, 191, 230, 0.1) 50%, transparent 70%);
       pointer-events: none;
       transform: translate(-50%, -50%);
       z-index: 0;
@@ -109,12 +111,12 @@
       z-index: 1;
     }
 
-    /* İnce Botanik Vektör Detayı (Zarif Çizgiler) */
+    /* İnce Botanik Vektör Detayı (Zarif Çizgiler - Yumuşak Gül Rengi) */
     .botanical-decor {
       width: 80px;
       height: 80px;
       margin-bottom: 20px;
-      color: var(--color-gold);
+      color: var(--color-pink-dark);
       opacity: 0.85;
     }
 
@@ -141,16 +143,16 @@
     .hero .date-badge {
       display: inline-block;
       padding: 6px 20px;
-      background: var(--color-gold-light);
-      border: 1px solid rgba(197, 168, 128, 0.4);
+      background: rgba(162, 191, 230, 0.15);
+      border: 1px solid rgba(162, 191, 230, 0.4);
       border-radius: 99px;
       font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--color-gold-dark);
+      color: var(--color-blue-dark);
       margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(197, 168, 128, 0.05);
+      box-shadow: 0 4px 12px rgba(162, 191, 230, 0.05);
     }
 
     /* Şık Buton Tasarımı */
@@ -158,9 +160,9 @@
       position: relative;
       padding: 16px 42px;
       border-radius: 999px;
-      border: 1px solid var(--color-gold);
+      border: 1px solid var(--color-pink-dark);
       background: transparent;
-      color: var(--text-main);
+      color: var(--color-pink-dark);
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
       font-weight: 500;
@@ -178,7 +180,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: var(--color-gold-light);
+      background: linear-gradient(135deg, rgba(244, 194, 201, 0.25) 0%, rgba(162, 191, 230, 0.25) 100%);
       z-index: -1;
       transform: scaleX(0);
       transform-origin: right;
@@ -192,9 +194,9 @@
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(197, 168, 128, 0.15);
-      border-color: var(--color-gold-dark);
-      color: var(--color-gold-dark);
+      box-shadow: 0 8px 25px rgba(244, 194, 201, 0.2);
+      border-color: var(--color-red-romantic);
+      color: var(--color-red-romantic);
     }
 
     .btn:active {
@@ -218,18 +220,18 @@
       border: 1px solid var(--card-border);
       border-radius: 24px;
       padding: 50px 30px;
-      box-shadow: 0 12px 30px rgba(74, 62, 61, 0.03), inset 0 0 15px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 12px 30px rgba(73, 62, 69, 0.03), inset 0 0 15px rgba(255, 255, 255, 0.6);
       position: relative;
     }
 
-    /* İnce İç Çerçeve Çizgisi */
+    /* İnce İç Çerçeve Çizgisi (Romantik Gül/Pembe Tonu) */
     .card-border-inner {
       position: absolute;
       top: 12px;
       left: 12px;
       right: 12px;
       bottom: 12px;
-      border: 1px solid rgba(197, 168, 128, 0.2);
+      border: 1px solid rgba(244, 194, 201, 0.35);
       border-radius: 16px;
       pointer-events: none;
     }
@@ -250,7 +252,7 @@
       display: block;
       width: 50px;
       height: 1px;
-      background: var(--color-gold);
+      background: var(--color-pink-dark);
       margin: 12px auto 0;
       opacity: 0.6;
     }
@@ -298,8 +300,8 @@
       background: #ffffff;
       padding: 12px 12px 35px 12px;
       border-radius: 4px;
-      border: 1px solid rgba(197, 168, 128, 0.15);
-      box-shadow: 0 8px 20px rgba(74, 62, 61, 0.05);
+      border: 1px solid rgba(162, 191, 230, 0.2);
+      box-shadow: 0 8px 20px rgba(73, 62, 69, 0.05);
       flex-shrink: 0;
       transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -313,7 +315,7 @@
 
     .photo-frame:hover {
       transform: scale(1.05) translateY(-6px);
-      box-shadow: 0 15px 30px rgba(197, 168, 128, 0.15);
+      box-shadow: 0 15px 30px rgba(162, 191, 230, 0.15);
     }
 
     @keyframes scroll {
@@ -332,7 +334,7 @@
       padding: 40px 24px;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(197, 168, 128, 0.2);
+      border: 1px solid rgba(162, 191, 230, 0.25);
       text-align: center;
       transition: all 0.4s ease;
     }
@@ -340,15 +342,15 @@
     .agenda-card:hover {
       transform: translateY(-4px);
       background: #ffffff;
-      box-shadow: 0 10px 25px rgba(197, 168, 128, 0.08);
-      border-color: var(--color-gold);
+      box-shadow: 0 10px 25px rgba(162, 191, 230, 0.1);
+      border-color: var(--color-pink-dark);
     }
 
     .agenda-card h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.8rem;
       font-weight: 500;
-      color: var(--color-gold-dark);
+      color: var(--color-red-romantic);
       margin-bottom: 8px;
     }
 
@@ -359,7 +361,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* İnteraktif Aşk Mektubu Zarfı (Boutique Krem / Toz Pembe Kumaş Kağıt Görünümü) */
+    /* İnteraktif Aşk Mektubu Zarfı (Butik Pamuk Kağıt & Kırmızı Mühür Görünümü) */
     .envelope-wrap {
       text-align: center;
     }
@@ -379,7 +381,7 @@
       left: 15px;
       right: 15px;
       height: 10px;
-      background: rgba(74, 62, 61, 0.05);
+      background: rgba(73, 62, 69, 0.05);
       border-radius: 50%;
       filter: blur(8px);
       transition: 0.5s;
@@ -390,11 +392,11 @@
       bottom: 0;
       width: 100%;
       height: 135px;
-      background: #faf6f0; /* Cotton kağıt dokusu */
+      background: #eef3fa; /* Soft Cotton Mavi Kağıt Dokusu */
       border-radius: 0 0 12px 12px;
       z-index: 3;
-      box-shadow: 0 8px 25px rgba(74, 62, 61, 0.05);
-      border: 1px solid rgba(197, 168, 128, 0.25);
+      box-shadow: 0 8px 25px rgba(73, 62, 69, 0.05);
+      border: 1px solid rgba(162, 191, 230, 0.35);
     }
 
     .base::after {
@@ -405,7 +407,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%),
-                  linear-gradient(45deg, rgba(197, 168, 128, 0.05) 0%, transparent 50%);
+                  linear-gradient(45deg, rgba(162, 191, 230, 0.05) 0%, transparent 50%);
       border-radius: 0 0 12px 12px;
     }
 
@@ -416,24 +418,24 @@
       height: 0;
       border-left: 150px solid transparent;
       border-right: 150px solid transparent;
-      border-top: 110px solid #f4efe6; /* Premium kapak */
+      border-top: 110px solid #f4d3d8; /* Soft Cotton Pembe Kapak */
       transform-origin: top;
       transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s;
       z-index: 4;
-      filter: drop-shadow(0 4px 6px rgba(197, 168, 128, 0.15));
+      filter: drop-shadow(0 4px 6px rgba(162, 191, 230, 0.15));
     }
 
-    /* Lüks Altın Mühür (Wax Seal) */
+    /* Lüks Kırmızı Mühür (Wax Seal) */
     .wax-seal {
       position: absolute;
       width: 45px;
       height: 45px;
-      background: radial-gradient(circle, #e6c594 0%, #c5a880 70%, #a3845b 100%);
+      background: radial-gradient(circle, #f25265 0%, #d93d4a 70%, #9e1d29 100%);
       border-radius: 50%;
       top: 55px;
       left: 127.5px;
       z-index: 5;
-      box-shadow: 0 3px 8px rgba(74, 62, 61, 0.2);
+      box-shadow: 0 3px 8px rgba(158, 29, 41, 0.3);
       transition: transform 0.5s, opacity 0.3s;
       display: flex;
       align-items: center;
@@ -446,7 +448,7 @@
       color: #ffffff;
     }
 
-    /* Mektup İçeriği ve Harika El Yazısı Fontu */
+    /* Mektup İçeriği ve Harika Romantik El Yazısı Fontu */
     .letter {
       position: absolute;
       left: 12px;
@@ -456,13 +458,13 @@
       color: var(--text-main);
       padding: 35px 25px;
       border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(197, 168, 128, 0.1);
+      box-shadow: 0 10px 30px rgba(162, 191, 230, 0.1);
       transform: translateY(40px) scale(0.95);
       transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.6s;
       opacity: 0;
       z-index: 2;
       text-align: center;
-      border: 1px solid rgba(197, 168, 128, 0.15);
+      border: 1px solid rgba(244, 194, 201, 0.25);
     }
 
     .letter p {
@@ -475,7 +477,7 @@
     .letter .letter-heart {
       width: 35px;
       height: 35px;
-      color: var(--color-rose);
+      color: var(--color-pink-dark);
       margin: 15px auto 0;
       display: block;
     }
@@ -514,7 +516,7 @@
     .box {
       padding: 24px 18px;
       background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(197, 168, 128, 0.25);
+      border: 1px solid rgba(162, 191, 230, 0.3);
       border-radius: 12px;
       min-width: 100px;
       text-align: center;
@@ -523,15 +525,15 @@
 
     .box:hover {
       transform: translateY(-2px);
-      border-color: var(--color-gold);
-      box-shadow: 0 8px 20px rgba(197, 168, 128, 0.08);
+      border-color: var(--color-pink-dark);
+      box-shadow: 0 8px 20px rgba(162, 191, 230, 0.08);
     }
 
     .box h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 5vw, 2.8rem);
       font-weight: 400;
-      color: var(--text-main);
+      color: var(--color-red-romantic);
       margin-bottom: 2px;
     }
 
@@ -709,10 +711,10 @@
           <p>Seni çok seviyorum.</p>
           <p>İyi ki varsın ❤️</p>
           
-          <!-- Lüks çizgi kalp motifi -->
+          <!-- Lüks çizgi kalp motifi (Soft Pembe/Kırmızı Tonunda) -->
           <svg class="letter-heart" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M 55,45 C 50,22 23,22 23,48 C 23,73 55,98 55,98 C 55,98 87,73 87,48 C 87,22 60,22 55,45 Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M 54,47 C 48,25 26,20 21,46 C 19,70 53,95 56,99 C 57,95 89,71 88,45 C 86,24 64,23 54,47 Z" stroke="var(--color-rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+            <path d="M 54,47 C 48,25 26,20 21,46 C 19,70 53,95 56,99 C 57,95 89,71 88,45 C 86,24 64,23 54,47 Z" stroke="var(--color-pink-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
           </svg>
         </div>
       </div>
@@ -738,7 +740,7 @@
       
       if (d < 0) {
         document.getElementById('countdown').innerHTML = `
-          <div class="box" style="width: 100%; border-color: var(--color-gold);">
+          <div class="box" style="width: 100%; border-color: var(--color-pink-dark);">
             <h3>Zamanı Geldi! ❤️</h3>
             <span>Seni bekliyorum...</span>
           </div>`;
@@ -771,9 +773,11 @@
       el.classList.add("floating-item");
 
       if (itemType === "sketchy-heart") {
-        // Çift çizgi mühür kalbini süzülen bir SVG olarak ekliyoruz
+        // Çift çizgi mühür kalbini süzülen bir SVG olarak ekliyoruz (Pembe, Mavi veya Kırmızı)
+        const colors = ['var(--color-pink-dark)', 'var(--color-blue-dark)', 'var(--color-red-romantic)'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
         el.innerHTML = `
-          <svg width="22" height="22" viewBox="0 0 120 120" style="color: ${Math.random() > 0.5 ? 'var(--color-gold)' : 'var(--color-rose)'}; filter: drop-shadow(0 0 3px rgba(0,0,0,0.05)); opacity: 0.65;">
+          <svg width="22" height="22" viewBox="0 0 120 120" style="color: ${randomColor}; filter: drop-shadow(0 0 3px rgba(0,0,0,0.05)); opacity: 0.75;">
             <path d="M 55,45 C 50,22 23,22 23,48 C 23,73 55,98 55,98 C 55,98 87,73 87,48 C 87,22 60,22 55,45 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M 54,47 C 48,25 26,20 21,46 C 19,70 53,95 56,99 C 57,95 89,71 88,45 C 86,24 64,23 54,47 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -781,7 +785,7 @@
       } else {
         el.innerText = itemType;
         el.style.fontSize = (16 + Math.random() * 20) + "px";
-        el.style.opacity = "0.75";
+        el.style.opacity = "0.8";
       }
 
       el.style.left = (Math.random() * 95) + "vw";
