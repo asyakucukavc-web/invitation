@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Invitation ❤️</title>
+  
+  <!-- Premium Google Fonts: Playfair Display, Cormorant Garamond (Fine Art Serif), Inter (Clean Body), Great Vibes (Cursive Calligraphy) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-cream: #fbf9f6;          /* Elegant warm linen cream background */
+      --color-gold: #c5a880;        /* Luxury champagne gold */
+      --color-gold-dark: #a3845b;   /* Deep gold accent */
+      --color-gold-light: #f4efe6;  /* Soft champagne touch */
+      --color-rose: #e8c5c8;        /* Soft dusty rose */
+      --color-rose-dark: #b88b8e;   /* Deep elegant rose */
+      --text-main: #3a3233;         /* Soft warm charcoal */
+      --text-muted: #7c6e6f;        /* Dusty grey-brown for readable details */
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(197, 168, 128, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-cream);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(244, 239, 230, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(232, 197, 200, 0.3) 0%, transparent 50%);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* Arka planda süzülen el çizimi kalpler ve talep edilen emojiler: 🌼🌸🌺💛❤️💖 */
+    .floating-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .floating-item {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.6);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* İnce, şık imleç arkası parıltı efekti (Masaüstü için) */
+    .cursor-glow {
+      position: fixed;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.12) 0%, rgba(232, 197, 200, 0.08) 50%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      transition: transform 0.1s ease;
+    }
+
+    @media (max-width: 768px) {
+      .cursor-glow {
+        display: none;
+      }
+    }
+
+    /* Karşılama Ekranı (Hero) */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+      z-index: 1;
+    }
+
+    /* İnce Botanik Vektör Detayı (Zarif Çizgiler) */
+    .botanical-decor {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      color: var(--color-gold);
+      opacity: 0.85;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      margin: 10px 0;
+      font-size: clamp(1.2rem, 5vw, 1.8rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      letter-spacing: 1px;
+    }
+
+    .hero .date-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      background: var(--color-gold-light);
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-gold-dark);
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(197, 168, 128, 0.05);
+    }
+
+    /* Şık Buton Tasarımı */
+    .btn {
+      position: relative;
+      padding: 16px 42px;
+      border-radius: 999px;
+      border: 1px solid var(--color-gold);
+      background: transparent;
+      color: var(--text-main);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-gold-light);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .btn:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(197, 168, 128, 0.15);
+      border-color: var(--color-gold-dark);
+      color: var(--color-gold-dark);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Bölümler */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Fine-Art Butik Tarzı Çerçeveli Kart Tasarımları */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 50px 30px;
+      box-shadow: 0 12px 30px rgba(74, 62, 61, 0.03), inset 0 0 15px rgba(255, 255, 255, 0.6);
+      position: relative;
+    }
+
+    /* İnce İç Çerçeve Çizgisi */
+    .card-border-inner {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      margin-bottom: 35px;
+      text-align: center;
+      color: var(--text-main);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 1px;
+      background: var(--color-gold);
+      margin: 12px auto 0;
+      opacity: 0.6;
+    }
+
+    /* Fotoğraf Galerisi (Fine-Art Polaroid Tarzı Carousel) */
+    .carousel {
+      display: flex;
+      overflow: hidden;
+      gap: 20px;
+      border-radius: 12px;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .carousel::before, .carousel::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg-cream), transparent);
+    }
+    .carousel::after {
+      right: 0;
+      background: linear-gradient(-90deg, var(--bg-cream), transparent);
+    }
+
+    .track {
+      display: flex;
+      gap: 24px;
+      animation: scroll 50s linear infinite;
+    }
+
+    .track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Polaroid Esintili Fotoğraf Çerçevesi */
+    .photo-frame {
+      background: #ffffff;
+      padding: 12px 12px 35px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      box-shadow: 0 8px 20px rgba(74, 62, 61, 0.05);
+      flex-shrink: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .photo-frame img {
+      width: 200px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .photo-frame:hover {
+      transform: scale(1.05) translateY(-6px);
+      box-shadow: 0 15px 30px rgba(197, 168, 128, 0.15);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Akşam Planı Akışı */
+    .agenda {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .agenda-card {
+      padding: 40px 24px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .agenda-card:hover {
+      transform: translateY(-4px);
+      background: #ffffff;
+      box-shadow: 0 10px 25px rgba(197, 168, 128, 0.08);
+      border-color: var(--color-gold);
+    }
+
+    .agenda-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--color-gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .agenda-card p {
+      color: var(--text-main);
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    /* İnteraktif Aşk Mektubu Zarfı (Boutique Krem / Toz Pembe Kumaş Kağıt Görünümü) */
+    .envelope-wrap {
+      text-align: center;
+    }
+
+    .envelope {
+      width: 300px;
+      height: 200px;
+      margin: 40px auto;
+      position: relative;
+      cursor: pointer;
+      perspective: 1200px;
+    }
+
+    .envelope-shadow {
+      position: absolute;
+      bottom: -15px;
+      left: 15px;
+      right: 15px;
+      height: 10px;
+      background: rgba(74, 62, 61, 0.05);
+      border-radius: 50%;
+      filter: blur(8px);
+      transition: 0.5s;
+    }
+
+    .base {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 135px;
+      background: #faf6f0; /* Cotton kağıt dokusu */
+      border-radius: 0 0 12px 12px;
+      z-index: 3;
+      box-shadow: 0 8px 25px rgba(74, 62, 61, 0.05);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+    }
+
+    .base::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 60%),
+                  linear-gradient(45deg, rgba(197, 168, 128, 0.05) 0%, transparent 50%);
+      border-radius: 0 0 12px 12px;
+    }
+
+    .flap {
+      position: absolute;
+      top: 65px;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-top: 110px solid #f4efe6; /* Premium kapak */
+      transform-origin: top;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s;
+      z-index: 4;
+      filter: drop-shadow(0 4px 6px rgba(197, 168, 128, 0.15));
+    }
+
+    /* Lüks Altın Mühür (Wax Seal) */
+    .wax-seal {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      background: radial-gradient(circle, #e6c594 0%, #c5a880 70%, #a3845b 100%);
+      border-radius: 50%;
+      top: 55px;
+      left: 127.5px;
+      z-index: 5;
+      box-shadow: 0 3px 8px rgba(74, 62, 61, 0.2);
+      transition: transform 0.5s, opacity 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wax-seal svg {
+      width: 18px;
+      height: 18px;
+      color: #ffffff;
+    }
+
+    /* Mektup İçeriği ve Harika El Yazısı Fontu */
+    .letter {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 80px;
+      background: #ffffff;
+      color: var(--text-main);
+      padding: 35px 25px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(197, 168, 128, 0.1);
+      transform: translateY(40px) scale(0.95);
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.1), opacity 0.6s;
+      opacity: 0;
+      z-index: 2;
+      text-align: center;
+      border: 1px solid rgba(197, 168, 128, 0.15);
+    }
+
+    .letter p {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      line-height: 1.3;
+      color: var(--text-main);
+    }
+
+    .letter .letter-heart {
+      width: 35px;
+      height: 35px;
+      color: var(--color-rose);
+      margin: 15px auto 0;
+      display: block;
+    }
+
+    /* Zarfın Açılma Efekti */
+    .open .flap {
+      transform: rotateX(180deg) translateY(65px);
+      z-index: 1;
+    }
+
+    .open .wax-seal {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    .open .letter {
+      transform: translateY(-145px) scale(1);
+      opacity: 1;
+      z-index: 5;
+    }
+
+    .open .envelope-shadow {
+      transform: scaleX(1.1);
+      opacity: 0.3;
+    }
+
+    /* Geri Sayım Kutuları */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .box {
+      padding: 24px 18px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: 12px;
+      min-width: 100px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .box:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      box-shadow: 0 8px 20px rgba(197, 168, 128, 0.08);
+    }
+
+    .box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .box span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Mobil Cihazlar İçin Optimizasyonlar */
+    @media (max-width: 768px) {
+      .agenda {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .photo-frame {
+        padding: 10px 10px 25px 10px;
+      }
+
+      .photo-frame img {
+        width: 170px;
+        height: 230px;
+      }
+
+      .card {
+        padding: 40px 16px;
+        border-radius: 20px;
+      }
+
+      .open .letter {
+        transform: translateY(-130px) scale(1);
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
+
+      .envelope {
+        width: 280px;
+        height: 190px;
+      }
+
+      .flap {
+        border-left-width: 140px;
+        border-right-width: 140px;
+        border-top-width: 100px;
+        top: 60px;
+      }
+
+      .wax-seal {
+        left: 117.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Arka Planda Akan Süslemeler -->
+  <div class="floating-container" id="floating-items"></div>
+
+  <!-- İmleç Takip Parıltısı -->
+  <div class="cursor-glow" id="glow"></div>
+
+  <!-- Hero Karşılama Ekranı -->
+  <div class="hero">
+    <!-- Botanik İnce Dal Çizimi -->
+    <svg class="botanical-decor" viewBox="0 0 100 100" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 85C50 85 50 35 50 15" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M50 65C53.5 60 62 57 65 60C68 63 65 72 50 68" stroke-width="1" stroke-linecap="round" />
+      <path d="M50 50C46.5 45 38 42 35 45C32 48 35 57 50 53" stroke-width="1" stroke-linecap="round" />
+      <path d="M50 40C53.5 35 62 32 65 35C68 38 65 47 50 43" stroke-width="1" stroke-linecap="round" />
+      <path d="M50 25C46.5 20 38 17 35 20C32 23 35 32 50 28" stroke-width="1" stroke-linecap="round" />
+    </svg>
+
+    <h1>Date Invitation</h1>
+    <p>An evening made for two</p>
+    <div class="date-badge">02 June 2026 · 20:00 CEST</div>
+    
+    <button class="btn" onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+      Open Invitation
+    </button>
+  </div>
+
+  <!-- Fotoğraf Albümü Bölümü -->
+  <section id="memories">
+    <div class="card">
+      <div class="card-border-inner"></div>
+      <h2>Our Memories</h2>
+      <div class="carousel">
+        <div class="track">
+          <!-- Polaroid çerçeveli anı fotoğraflarınızın listesi -->
+          <div class="photo-frame"><img src="photos/1 (1).jpeg" alt="Anı 1"></div>
+          <div class="photo-frame"><img src="photos/1 (2).jpeg" alt="Anı 2"></div>
+          <div class="photo-frame"><img src="photos/1 (3).jpeg" alt="Anı 3"></div>
+          <div class="photo-frame"><img src="photos/1 (4).jpeg" alt="Anı 4"></div>
+          <div class="photo-frame"><img src="photos/1 (5).jpeg" alt="Anı 5"></div>
+          <div class="photo-frame"><img src="photos/1 (6).jpeg" alt="Anı 6"></div>
+          <div class="photo-frame"><img src="photos/1 (7).jpeg" alt="Anı 7"></div>
+          <div class="photo-frame"><img src="photos/1 (8).jpeg" alt="Anı 8"></div>
+          <div class="photo-frame"><img src="photos/1 (9).jpeg" alt="Anı 9"></div>
+          <div class="photo-frame"><img src="photos/1 (10).jpeg" alt="Anı 10"></div>
+          <div class="photo-frame"><img src="photos/1 (11).jpeg" alt="Anı 11"></div>
+          <div class="photo-frame"><img src="photos/1 (12).jpeg" alt="Anı 12"></div>
+          <div class="photo-frame"><img src="photos/1 (13).jpeg" alt="Anı 13"></div>
+          <div class="photo-frame"><img src="photos/1 (14).jpeg" alt="Anı 14"></div>
+          <div class="photo-frame"><img src="photos/1 (15).jpeg" alt="Anı 15"></div>
+          <div class="photo-frame"><img src="photos/1 (16).jpeg" alt="Anı 16"></div>
+          <div class="photo-frame"><img src="photos/1 (17).jpeg" alt="Anı 17"></div>
+          <div class="photo-frame"><img src="photos/1 (18).jpeg" alt="Anı 18"></div>
+          <div class="photo-frame"><img src="photos/1 (19).jpeg" alt="Anı 19"></div>
+          <div class="photo-frame"><img src="photos/1 (20).jpeg" alt="Anı 20"></div>
+          <div class="photo-frame"><img src="photos/1 (21).jpeg" alt="Anı 21"></div>
+          <div class="photo-frame"><img src="photos/1 (22).jpeg" alt="Anı 22"></div>
+          <div class="photo-frame"><img src="photos/1 (23).jpeg" alt="Anı 23"></div>
+          <div class="photo-frame"><img src="photos/1 (24).jpeg" alt="Anı 24"></div>
+          <div class="photo-frame"><img src="photos/1 (25).jpeg" alt="Anı 25"></div>
+          <div class="photo-frame"><img src="photos/1 (26).jpeg" alt="Anı 26"></div>
+          <div class="photo-frame"><img src="photos/1 (27).jpeg" alt="Anı 27"></div>
+          
+          <!-- Kesintisiz döngü oluşturmak için kopyalanmış kısımlar -->
+          <div class="photo-frame"><img src="photos/1 (1).jpeg" alt="Anı 1"></div>
+          <div class="photo-frame"><img src="photos/1 (2).jpeg" alt="Anı 2"></div>
+          <div class="photo-frame"><img src="photos/1 (3).jpeg" alt="Anı 3"></div>
+          <div class="photo-frame"><img src="photos/1 (4).jpeg" alt="Anı 4"></div>
+          <div class="photo-frame"><img src="photos/1 (5).jpeg" alt="Anı 5"></div>
+          <div class="photo-frame"><img src="photos/1 (6).jpeg" alt="Anı 6"></div>
+          <div class="photo-frame"><img src="photos/1 (7).jpeg" alt="Anı 7"></div>
+          <div class="photo-frame"><img src="photos/1 (8).jpeg" alt="Anı 8"></div>
+          <div class="photo-frame"><img src="photos/1 (9).jpeg" alt="Anı 9"></div>
+          <div class="photo-frame"><img src="photos/1 (10).jpeg" alt="Anı 10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan Akışı Bölümü -->
+  <section>
+    <div class="card">
+      <div class="card-border-inner"></div>
+      <h2>Tonight's Plan</h2>
+      <div class="agenda">
+        <div class="agenda-card">
+          <h3>🍷 20:00</h3>
+          <p>Wine & Dinner</p>
+        </div>
+        <div class="agenda-card">
+          <h3>🎬 22:30</h3>
+          <p>Movie Night</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mektup Zarfı Bölümü -->
+  <section>
+    <div class="card envelope-wrap">
+      <div class="card-border-inner"></div>
+      <h2>💌 Open My Letter</h2>
+      <div class="envelope" id="env" onclick="this.classList.toggle('open')">
+        <div class="envelope-shadow"></div>
+        <div class="flap"></div>
+        <div class="wax-seal">
+          <!-- Altın Wax Mühür Detayı (Kalp simgesi) -->
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div class="base"></div>
+        <div class="letter">
+          <p><strong>Sevgilim,</strong></p>
+          <p>Çok güzel bir sene geçirdim.</p>
+          <p>Çok fazla anı biriktirdik, çok daha fazlasını da biriktireceğimiz senelere.</p>
+          <p>Seni çok seviyorum.</p>
+          <p>İyi ki varsın ❤️</p>
+          
+          <!-- Lüks çizgi kalp motifi -->
+          <svg class="letter-heart" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 55,45 C 50,22 23,22 23,48 C 23,73 55,98 55,98 C 55,98 87,73 87,48 C 87,22 60,22 55,45 Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 54,47 C 48,25 26,20 21,46 C 19,70 53,95 56,99 C 57,95 89,71 88,45 C 86,24 64,23 54,47 Z" stroke="var(--color-rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Geri Sayım Bölümü -->
+  <section>
+    <div class="card">
+      <div class="card-border-inner"></div>
+      <h2>See You At 20:00 ❤️</h2>
+      <div id="countdown" class="countdown"></div>
+    </div>
+  </section>
+
+  <script>
+    // Geri Sayım Sayacı İşlevi
+    const target = new Date("2026-06-02T20:00:00+02:00").getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const d = target - now;
+      
+      if (d < 0) {
+        document.getElementById('countdown').innerHTML = `
+          <div class="box" style="width: 100%; border-color: var(--color-gold);">
+            <h3>Zamanı Geldi! ❤️</h3>
+            <span>Seni bekliyorum...</span>
+          </div>`;
+        return;
+      }
+
+      const days = Math.floor(d / 86400000);
+      const hrs = Math.floor((d % 86400000) / 3600000);
+      const min = Math.floor((d % 3600000) / 60000);
+      const sec = Math.floor((d % 60000) / 1000);
+
+      document.getElementById('countdown').innerHTML = `
+        <div class="box"><h3>${days}</h3><span>Days</span></div>
+        <div class="box"><h3>${hrs}</h3><span>Hours</span></div>
+        <div class="box"><h3>${min}</h3><span>Minutes</span></div>
+        <div class="box"><h3>${sec}</h3><span>Seconds</span></div>
+      `;
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Emojilerin & Karalama Kalplerin Havada Süzülme Animasyonu (Boutique Tarzına Uygun)
+    const container = document.getElementById("floating-items");
+    const itemsList = ["🌼", "🌸", "🌺", "💛", "❤️", "💖", "sketchy-heart"];
+
+    function createFloatingItem() {
+      const itemType = itemsList[Math.floor(Math.random() * itemsList.length)];
+      const el = document.createElement("div");
+      el.classList.add("floating-item");
+
+      if (itemType === "sketchy-heart") {
+        // Çift çizgi mühür kalbini süzülen bir SVG olarak ekliyoruz
+        el.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 120 120" style="color: ${Math.random() > 0.5 ? 'var(--color-gold)' : 'var(--color-rose)'}; filter: drop-shadow(0 0 3px rgba(0,0,0,0.05)); opacity: 0.65;">
+            <path d="M 55,45 C 50,22 23,22 23,48 C 23,73 55,98 55,98 C 55,98 87,73 87,48 C 87,22 60,22 55,45 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 54,47 C 48,25 26,20 21,46 C 19,70 53,95 56,99 C 57,95 89,71 88,45 C 86,24 64,23 54,47 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        `;
+      } else {
+        el.innerText = itemType;
+        el.style.fontSize = (16 + Math.random() * 20) + "px";
+        el.style.opacity = "0.75";
+      }
+
+      el.style.left = (Math.random() * 95) + "vw";
+      el.style.animationDuration = (10 + Math.random() * 12) + "s";
+      el.style.animationDelay = (Math.random() * 4) + "s";
+      
+      container.appendChild(el);
+
+      // Performans koruması için eski öğeleri siliyoruz
+      setTimeout(() => {
+        el.remove();
+      }, 22000);
+    }
+
+    // Başlangıçta ekranı tatlı bir şekilde canlandırmak için
+    for (let i = 0; i < 18; i++) {
+      createFloatingItem();
+    }
+    setInterval(createFloatingItem, 700);
+
+    // Mouse Hareket Takip Işığı (Masaüstü)
+    const glow = document.getElementById("glow");
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+    });
+  </script>
+</body>
+</html>
